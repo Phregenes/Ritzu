@@ -6,6 +6,7 @@ import {
   Inter,
   Libre_Baskerville,
 } from "next/font/google";
+import { AppProviders } from "@/components/app-providers";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -52,7 +53,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="pt-BR"
       className={`${cormorant.variable} ${instrument.variable} ${baskerville.variable} ${plex.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        <AppProviders>{children}</AppProviders>
+      </body>
     </html>
   );
 }

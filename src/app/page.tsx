@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AudioDock } from "@/components/audio-dock";
 
 const paths = [
   {
@@ -49,6 +50,7 @@ export default function ChooserPage() {
         <p className="font-sans text-[11px] tracking-[0.35em] uppercase text-stone">
           Brand project · e-commerce
         </p>
+        <AudioDock />
       </header>
 
       <section className="mx-auto max-w-6xl px-6 pb-10 pt-8 md:px-12 md:pt-16">

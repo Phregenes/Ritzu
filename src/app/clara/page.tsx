@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { AudioScene } from "@/components/audio-scene";
+import { ClaraVizSection } from "@/components/visualizers/sections";
 import { VersionBar } from "@/components/version-bar";
 import { formatPrice, heroImages, leatherPrints, products } from "@/lib/products";
 
@@ -44,6 +46,7 @@ export default function ClaraHome() {
                 Silenciosamente perigosa. Essa é a nossa partitura; a música é
                 sua.
               </p>
+              <AudioScene variant="clara" />
               <a
                 href="#colecao"
                 className="mt-8 w-fit bg-ink px-6 py-3 text-[11px] tracking-[0.24em] text-cream uppercase"
@@ -72,6 +75,8 @@ export default function ClaraHome() {
           </div>
         </div>
       </section>
+
+      <ClaraVizSection />
 
       <section id="materias" className="px-4 py-10 md:px-8 md:py-14">
         <div className="mx-auto max-w-6xl">

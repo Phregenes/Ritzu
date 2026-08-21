@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { AudioScene } from "@/components/audio-scene";
+import { ModernaVizSection } from "@/components/visualizers/sections";
 import { VersionBar } from "@/components/version-bar";
 import { formatPrice, heroImages, products } from "@/lib/products";
 
@@ -32,7 +34,8 @@ export default function ModernaHome() {
           className="object-cover opacity-55"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-ink/30" />
-        <div className="relative flex min-h-[100svh] flex-col justify-end px-6 pb-16 md:px-10 md:pb-24">
+        <AudioScene variant="moderna" />
+        <div className="relative z-10 flex min-h-[100svh] flex-col justify-end px-6 pb-16 md:px-10 md:pb-24">
           <p className="text-[11px] tracking-[0.4em] text-sky uppercase">
             Dark emotional luxury
           </p>
@@ -84,6 +87,8 @@ export default function ModernaHome() {
           </p>
         </div>
       </section>
+
+      <ModernaVizSection />
 
       <section id="colecao" className="px-6 py-20 md:px-10">
         <div className="mb-12 flex items-end justify-between">

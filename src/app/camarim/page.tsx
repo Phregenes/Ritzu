@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { AudioScene } from "@/components/audio-scene";
+import { CamarimHeroObject } from "@/components/visualizers/camarim-hero";
 import { VersionBar } from "@/components/version-bar";
 import { formatPrice, heroImages, products } from "@/lib/products";
 
@@ -10,17 +12,7 @@ export default function CamarimHome() {
     <div className="bg-chocolate text-cream font-serif pb-28">
       <VersionBar />
 
-      <div
-        className="flex justify-center gap-2 bg-ink py-2"
-        aria-hidden="true"
-      >
-        {Array.from({ length: 18 }).map((_, i) => (
-          <span
-            key={i}
-            className="size-2.5 rounded-full bg-[#e8d7a8] shadow-[0_0_8px_#e8d7a8] md:size-3"
-          />
-        ))}
-      </div>
+      <AudioScene variant="camarim" />
 
       <header className="flex items-center justify-between px-6 py-5 md:px-12">
         <p className="font-sans text-[10px] tracking-[0.32em] uppercase text-cream/50">
@@ -34,25 +26,26 @@ export default function CamarimHome() {
         </button>
       </header>
 
-      <section className="relative min-h-[88svh] overflow-hidden">
+      <section className="relative isolate min-h-[88svh] overflow-hidden">
         <Image
           src={heroImages.velvet}
           alt="Interior em luz quente"
           fill
           priority
-          className="object-cover opacity-40"
+          className="z-0 object-cover opacity-50"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-chocolate via-chocolate/70 to-burgundy/40" />
-        <div className="relative flex min-h-[88svh] flex-col justify-end px-6 pb-16 md:px-12 md:pb-24">
-          <p className="font-sans text-[11px] tracking-[0.4em] text-terracotta uppercase">
+        <CamarimHeroObject />
+        <div className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-br from-chocolate from-[8%] via-chocolate/70 via-[38%] to-burgundy/15" />
+        <div className="relative z-10 flex min-h-[88svh] flex-col justify-start px-6 pt-14 text-left md:max-w-[56%] md:px-14 md:pt-20">
+          <p className="font-sans text-[12px] tracking-[0.42em] text-terracotta uppercase md:text-[13px]">
             Camarim · Vol. 1
           </p>
-          <h1 className="mt-4 max-w-4xl text-5xl leading-[0.92] italic md:text-8xl">
+          <h1 className="mt-6 max-w-4xl text-6xl leading-[0.94] italic md:text-[6.5rem]">
             A última
             <br />
             luz acesa.
           </h1>
-          <p className="mt-8 max-w-md font-sans text-sm leading-7 text-cream/75">
+          <p className="mt-10 max-w-lg font-sans text-base leading-8 text-cream/85 md:text-[17px]">
             RITZU não se mostra na vitrine fria. Ela espera no camarim:
             couro no colo, fôrma europeia, o silêncio antes da música.
           </p>

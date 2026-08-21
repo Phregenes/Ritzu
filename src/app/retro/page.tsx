@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { AudioScene } from "@/components/audio-scene";
+import { RetroVizSection } from "@/components/visualizers/sections";
 import { VersionBar } from "@/components/version-bar";
 import { formatPrice, heroImages, products } from "@/lib/products";
 
@@ -9,6 +11,7 @@ export default function RetroHome() {
       <VersionBar />
 
       <header className="relative z-10 flex items-center justify-between border-b border-[#1a1a1a] px-5 py-4 md:px-10">
+        <AudioScene variant="retro" />
         <p className="text-[10px] tracking-[0.28em] uppercase">
           Index / Vol.01 / 33rpm
         </p>
@@ -78,6 +81,8 @@ export default function RetroHome() {
           </span>
         </div>
       </section>
+
+      <RetroVizSection />
 
       <section id="catalogo" className="border-b border-[#1a1a1a] px-5 py-16 md:px-10">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-6">

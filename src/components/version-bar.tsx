@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { AudioDock } from "@/components/audio-dock";
 
 const versions = [
   { href: "/", label: "Escolher" },
@@ -17,7 +18,8 @@ export function VersionBar() {
   const current = versions.some((v) => v.href === pathname) ? pathname : "/";
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-4 z-50 flex justify-center px-3">
+    <div className="pointer-events-none fixed inset-x-0 bottom-4 z-50 flex flex-col items-center justify-center gap-2 px-3 md:flex-row">
+      <AudioDock />
       <label className="pointer-events-auto relative w-full max-w-[16.5rem] md:hidden">
         <span className="sr-only">Versão da home</span>
         <select
