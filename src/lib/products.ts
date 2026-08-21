@@ -106,3 +106,34 @@ export const heroImages = {
   lamp:
     "https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=1600&q=80",
 };
+
+export const leatherPrints = [
+  {
+    slug: "python-teal",
+    name: "Python",
+    note: "Escama iridescente · teal e ferrugem",
+    image: "/textures/python-teal.jpg",
+    featured: true,
+  },
+  {
+    slug: "python-ink",
+    name: "Python ink",
+    note: "Contraste alto · película",
+    image: "/textures/python-ink.jpg",
+    featured: false,
+  },
+  {
+    slug: "python-gold",
+    name: "Python gold",
+    note: "Sela amarela do guideline",
+    image: "/textures/python-gold.jpg",
+    featured: false,
+  },
+  {
+    slug: "couro-trama",
+    name: "Couro trama",
+    note: "Grão prensado · metal oxidado",
+    image: "/textures/couro-trama.jpg",
+    featured: false,
+  },
+] as const;

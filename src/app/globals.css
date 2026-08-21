@@ -148,3 +148,23 @@ body {
 .retro-scan {
   animation: retro-scan 4.5s linear infinite;
 }
+
+.print-croc {
+  background-color: #2a332e;
+  background-image:
+    radial-gradient(ellipse 42px 28px at 50% 40%, #3d4a43 0 55%, transparent 56%),
+    radial-gradient(ellipse 42px 28px at 0 90%, #485850 0 50%, transparent 51%),
+    radial-gradient(ellipse 42px 28px at 100% 90%, #1c221e 0 50%, transparent 51%);
+  background-size: 72px 48px;
+}
+
+.print-tiger {
+  background-color: #a8b8c8;
+  background-image: repeating-linear-gradient(
+    -18deg,
+    #a8b8c8 0 14px,
+    #480008 14px 22px,
+    #a8b8c8 22px 28px,
+    #884800 28px 34px
+  );
+}

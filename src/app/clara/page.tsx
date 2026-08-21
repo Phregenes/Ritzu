@@ -1,13 +1,12 @@
 import Image from "next/image";
 import { VersionBar } from "@/components/version-bar";
-import { formatPrice, heroImages, products } from "@/lib/products";
+import { formatPrice, heroImages, leatherPrints, products } from "@/lib/products";
 
 export default function ClaraHome() {
   const featured = products[0];
-  const rest = products.slice(1);
 
   return (
-    <div className="bg-[#eef1f4] text-ink font-sans pb-28">
+    <div className="bg-[#eef1f4] text-ink font-sans pb-20">
       <VersionBar />
 
       <section className="relative min-h-[100svh] bg-sky text-ink">
@@ -42,8 +41,8 @@ export default function ClaraHome() {
                 RITZU
               </h1>
               <p className="mt-5 max-w-sm text-sm leading-7 text-ink/75">
-                Silenciosamente perigosa. Botas para quem existe cru — estrutura
-                precisa, emoção crua.
+                Silenciosamente perigosa. Essa é a nossa partitura; a música é
+                sua.
               </p>
               <a
                 href="#colecao"
@@ -74,11 +73,65 @@ export default function ClaraHome() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-6 py-16 text-center md:py-20">
-        <p className="font-serif text-3xl leading-snug text-ink md:text-4xl">
-          Essa é a nossa partitura.{" "}
-          <span className="text-stone">A música é sua.</span>
-        </p>
+      <section id="materias" className="px-4 py-10 md:px-8 md:py-14">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-8 max-w-2xl">
+            <p className="text-[11px] tracking-[0.3em] text-terracotta uppercase">
+              Guideline · texturas
+            </p>
+            <h2 className="mt-3 font-serif text-4xl md:text-5xl">Estampas de couro</h2>
+            <p className="mt-4 text-sm leading-7 text-ink/70">
+              O brand book pede matéria: python, croc, listra, verniz gasto.
+              A RITZU não é superfície lisa — é couro que já viveu.
+            </p>
+          </div>
+
+          <div className="grid overflow-hidden border border-sky bg-white sm:grid-cols-2 lg:grid-cols-3">
+            {leatherPrints.map((print) => (
+              <article
+                key={print.slug}
+                className={`relative min-h-[240px] border-sky ${
+                  print.featured
+                    ? "min-h-[320px] sm:col-span-2 sm:row-span-2 sm:min-h-full"
+                    : "border-t lg:border-l"
+                }`}
+              >
+                <Image
+                  src={print.image}
+                  alt={print.name}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-ink/70 px-5 py-4 text-cream">
+                  <p className="font-serif text-2xl">{print.name}</p>
+                  <p className="mt-1 text-[11px] tracking-[0.16em] uppercase text-cream/80">
+                    {print.note}
+                  </p>
+                </div>
+              </article>
+            ))}
+
+            <article className="relative min-h-[240px] border-t border-sky lg:border-l">
+              <div className="print-croc absolute inset-0" />
+              <div className="absolute inset-x-0 bottom-0 bg-ink/70 px-5 py-4 text-cream">
+                <p className="font-serif text-2xl">Croc</p>
+                <p className="mt-1 text-[11px] tracking-[0.16em] uppercase text-cream/80">
+                  Escama pesada · verde-floresta
+                </p>
+              </div>
+            </article>
+
+            <article className="relative min-h-[240px] border-t border-sky lg:border-l">
+              <div className="print-tiger absolute inset-0" />
+              <div className="absolute inset-x-0 bottom-0 bg-ink/70 px-5 py-4 text-cream">
+                <p className="font-serif text-2xl">Tigre</p>
+                <p className="mt-1 text-[11px] tracking-[0.16em] uppercase text-cream/80">
+                  Listra do mood board · azul e burgundy
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
       </section>
 
       <section id="colecao" className="px-4 pb-6 md:px-8">
@@ -116,7 +169,7 @@ export default function ClaraHome() {
           </p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {rest.map((product) => (
+          {products.map((product) => (
             <article
               key={product.slug}
               className="flex flex-col overflow-hidden border border-sky bg-white"
@@ -157,7 +210,7 @@ export default function ClaraHome() {
         </div>
       </section>
 
-      <footer className="flex flex-col gap-3 px-6 py-10 text-[10px] tracking-[0.24em] uppercase text-stone md:flex-row md:justify-between md:px-12">
+      <footer className="flex flex-col gap-3 bg-[#eef1f4] px-6 py-8 pb-6 text-[10px] tracking-[0.24em] uppercase text-stone md:flex-row md:justify-between md:px-12">
         <p>RITZU · São Paulo</p>
         <p>Capa · azul da marca</p>
       </footer>
