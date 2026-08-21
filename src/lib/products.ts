@@ -71,11 +71,10 @@ export const products: Product[] = [
     name: "London Last",
     track: "Faixa 05",
     price: 4280,
-    leather: "Couro de bezerro chocolate",
+    leather: "Couro de bezerro preto",
     last: "Alfaiataria londrina, bico fino",
-    image:
-      "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?auto=format&fit=crop&w=1400&q=80",
-    alt: "Calçado de couro chocolate sobre madeira"
+    image: "/products/london-last.jpg",
+    alt: "Bota de couro preta no tornozelo"
   },
   {
     id: "06",

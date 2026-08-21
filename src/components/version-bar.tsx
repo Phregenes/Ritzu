@@ -7,6 +7,7 @@ const versions = [
   { href: "/moderna", label: "Moderna" },
   { href: "/retro", label: "Retrô" },
   { href: "/camarim", label: "Camarim" },
+  { href: "/clara", label: "Clara" },
 ] as const;
 
 export function VersionBar() {
@@ -16,7 +17,7 @@ export function VersionBar() {
     <div className="pointer-events-none fixed inset-x-0 bottom-4 z-50 flex justify-center px-4">
       <nav
         aria-label="Trocar versão da home"
-        className="pointer-events-auto flex items-center gap-1 rounded-full border border-black/10 bg-[#181818]/90 px-2 py-1.5 text-[11px] tracking-[0.18em] text-[#e0d8d0] shadow-2xl backdrop-blur-md uppercase"
+        className="pointer-events-auto flex max-w-full flex-wrap items-center justify-center gap-1 rounded-full border border-black/10 bg-[#181818]/90 px-2 py-1.5 text-[10px] tracking-[0.16em] text-[#e0d8d0] shadow-2xl backdrop-blur-md uppercase md:text-[11px] md:tracking-[0.18em]"
       >
         <Link
           href="/"

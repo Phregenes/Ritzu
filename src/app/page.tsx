@@ -28,6 +28,15 @@ const paths = [
     tone: "bg-chocolate text-cream",
     accent: "text-terracotta",
   },
+  {
+    href: "/clara",
+    kicker: "04",
+    title: "Clara",
+    subtitle: "Capa · azul",
+    copy: "O azul da primeira página do brand book. Ar, wordmark, creme e terracota só no detalhe.",
+    tone: "bg-sky text-ink",
+    accent: "text-white",
+  },
 ] as const;
 
 export default function ChooserPage() {
@@ -50,13 +59,13 @@ export default function ChooserPage() {
           RITZU
         </h1>
         <p className="mt-8 max-w-xl font-sans text-lg leading-relaxed text-ink/80 md:text-xl">
-          Três versões de home para a dona da marca escolher o caminho.
+          Quatro versões de home para a dona da marca escolher o caminho.
           Todas partem do mesmo DNA: mistério, cultura, presença — e botas
           feitas para quem existe com autenticidade.
         </p>
       </section>
 
-      <section className="grid min-h-[52vh] md:grid-cols-3">
+      <section className="grid min-h-[52vh] sm:grid-cols-2 lg:grid-cols-4">
         {paths.map((path) => (
           <Link
             key={path.href}
