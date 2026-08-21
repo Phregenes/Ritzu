@@ -20,6 +20,9 @@
 # production
 /build
 
+# brand source previews
+.brand-preview/
+
 # misc
 .DS_Store
 *.pem

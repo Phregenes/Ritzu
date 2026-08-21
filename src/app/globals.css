@@ -1,26 +1,150 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ink: #181818;
+  --terracotta: #884800;
+  --cream: #e0d8d0;
+  --burgundy: #480008;
+  --forest: #485850;
+  --stone: #888080;
+  --chocolate: #301008;
+  --sky: #a8b8c8;
+  --paper: #d8e0e0;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--ink);
+  --color-terracotta: var(--terracotta);
+  --color-cream: var(--cream);
+  --color-burgundy: var(--burgundy);
+  --color-forest: var(--forest);
+  --color-stone: var(--stone);
+  --color-chocolate: var(--chocolate);
+  --color-sky: var(--sky);
+  --color-paper: var(--paper);
+  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-instrument);
+  --font-display: var(--font-baskerville);
+  --font-mono: var(--font-plex);
+  --font-apple: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  min-height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.grain {
+  position: relative;
+}
+
+.grain::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+
+.film-vignette {
+  box-shadow: inset 0 0 120px rgba(24, 24, 24, 0.35);
+}
+
+@keyframes retro-dots-shift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 18px 18px;
+  }
+}
+
+@keyframes retro-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes retro-draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes retro-scan {
+  0%,
+  100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+.retro-dots {
+  background-color: #f5f0e1;
+  background-image: radial-gradient(#1a1a1a 0.85px, transparent 0.9px);
+  background-size: 18px 18px;
+  animation: retro-dots-shift 22s linear infinite;
+  color: #1a1a1a;
+}
+
+.retro-in {
+  animation: retro-in 0.55s linear both;
+}
+
+.retro-draw {
+  transform-origin: left;
+  animation: retro-draw 0.7s linear both;
+}
+
+.retro-cta {
+  border: 1px solid #1a1a1a;
+  background: #f5f0e1;
+  color: #1a1a1a;
+  transition:
+    background-color 80ms linear,
+    color 80ms linear;
+}
+
+.retro-cta:hover {
+  background: #884800;
+  color: #f5f0e1;
+}
+
+.retro-card {
+  background: #fbf7ee;
+  transition: background-color 80ms linear;
+}
+
+.retro-card:hover {
+  background: #ffffff;
+}
+
+.retro-card img {
+  filter: grayscale(0.25);
+  transition: filter 160ms linear;
+}
+
+.retro-card:hover img {
+  filter: grayscale(0);
+}
+
+.retro-scan {
+  animation: retro-scan 4.5s linear infinite;
 }

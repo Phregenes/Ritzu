@@ -1,69 +1,90 @@
-import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+const paths = [
+  {
+    href: "/moderna",
+    kicker: "01",
+    title: "Moderna",
+    subtitle: "Editorial · estilosa",
+    copy: "Tensão fashion, grid assimétrico, noite e couro. Saint Laurent cruza Ann Demeulemeester — silenciosamente perigosa.",
+    tone: "bg-ink text-cream",
+    accent: "text-sky",
+  },
+  {
+    href: "/retro",
+    kicker: "02",
+    title: "Retrô",
+    subtitle: "Vol. 1 · analog",
+    copy: "Camarim, filme, hotel vintage e rockstar atemporal. A coleção como um álbum: cada bota é uma faixa.",
+    tone: "bg-burgundy text-cream",
+    accent: "text-terracotta",
+  },
+  {
+    href: "/camarim",
+    kicker: "03",
+    title: "Camarim",
+    subtitle: "Íntima · noturna",
+    copy: "A hora antes do palco: luz baixa, espelho, couro no colo. Luxo emocional sem vitrine de tecnologia.",
+    tone: "bg-chocolate text-cream",
+    accent: "text-terracotta",
+  },
+] as const;
+
+export default function ChooserPage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="min-h-screen bg-paper text-ink">
+      <header className="flex items-center justify-between px-6 py-6 md:px-12">
+        <p className="font-sans text-[11px] tracking-[0.35em] uppercase">
+          Beatrice Tanaka
+        </p>
+        <p className="font-sans text-[11px] tracking-[0.35em] uppercase text-stone">
+          Brand project · e-commerce
+        </p>
+      </header>
+
+      <section className="mx-auto max-w-6xl px-6 pb-10 pt-8 md:px-12 md:pt-16">
+        <p className="font-sans text-[11px] tracking-[0.4em] text-stone uppercase">
+          Calçados masculinos de luxo
+        </p>
+        <h1 className="mt-4 font-serif text-[18vw] leading-[0.8] tracking-tight md:text-[9rem]">
+          RITZU
+        </h1>
+        <p className="mt-8 max-w-xl font-sans text-lg leading-relaxed text-ink/80 md:text-xl">
+          Três versões de home para a dona da marca escolher o caminho.
+          Todas partem do mesmo DNA: mistério, cultura, presença — e botas
+          feitas para quem existe com autenticidade.
+        </p>
+      </section>
+
+      <section className="grid min-h-[52vh] md:grid-cols-3">
+        {paths.map((path) => (
+          <Link
+            key={path.href}
+            href={path.href}
+            className={`group flex flex-col justify-between p-8 transition md:p-10 ${path.tone} hover:brightness-[1.04]`}
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            <div>
+              <p className={`font-mono text-xs tracking-[0.3em] ${path.accent}`}>
+                {path.kicker}
+              </p>
+              <h2 className="mt-6 font-serif text-5xl leading-none md:text-6xl">
+                {path.title}
+              </h2>
+              <p className="mt-3 font-sans text-sm tracking-[0.22em] uppercase opacity-70">
+                {path.subtitle}
+              </p>
+            </div>
+            <div className="mt-12">
+              <p className="max-w-sm font-sans text-sm leading-relaxed opacity-85">
+                {path.copy}
+              </p>
+              <span className="mt-8 inline-block font-sans text-[11px] tracking-[0.28em] uppercase underline decoration-1 underline-offset-8">
+                Abrir esta home
+              </span>
+            </div>
+          </Link>
+        ))}
+      </section>
+    </main>
   );
 }
