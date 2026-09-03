@@ -87,16 +87,16 @@ export function useAudioApi() {
   return value;
 }
 
-const bandCache = new WeakMap<AnalyserNode, Uint8Array>();
+const bandCache = new WeakMap<AnalyserNode, Uint8Array<ArrayBuffer>>();
 
 export function readBands(analyser: AnalyserNode | null, count = 12) {
   if (!analyser) return Array(count).fill(0.06);
   let data = bandCache.get(analyser);
   if (!data || data.length !== analyser.frequencyBinCount) {
-    data = new Uint8Array(analyser.frequencyBinCount);
+    data = new Uint8Array(analyser.frequencyBinCount) as Uint8Array<ArrayBuffer>;
     bandCache.set(analyser, data);
   }
-  analyser.getByteFrequencyData(data);
+  analyser.getByteFrequencyData(data as Uint8Array<ArrayBuffer>);
   const avg = (from: number, to: number) => {
     let sum = 0;
     for (let i = from; i < to; i += 1) sum += data[i];
@@ -116,7 +116,7 @@ function getAudio() {
   audio.loop = true;
   audio.preload = "auto";
   audio.crossOrigin = "anonymous";
-  audio.playsInline = true;
+  (audio as HTMLAudioElement & { playsInline: boolean }).playsInline = true;
   audio.setAttribute("playsinline", "true");
   audio.setAttribute("webkit-playsinline", "true");
   audioRef.current = audio;
